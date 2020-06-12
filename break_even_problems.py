@@ -1,18 +1,17 @@
-from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 from matplotlib import cm
-from matplotlib.ticker import LinearLocator, FormatStrFormatter
 import numpy as np
 
+area = 300  # Planned purchase area
+mouth = 1200  # Expected investment period
 fig = plt.figure()
 ax = fig.gca(projection='3d')
 
 # Make data.
-X = np.arange(0, 300, 10)
-Y = np.arange(0, 1200, 40)
+X = np.arange(0, area, 10)
+Y = np.arange(0, mouth, 40)
 X, Y = np.meshgrid(X, Y)
-Z = X*Y/300-2*X
-
+Z = X * Y / 300 - 2 * X
 
 # Plot the surface.
 surf = ax.plot_surface(X, Y, Z, cmap=cm.coolwarm,
